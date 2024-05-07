@@ -1,7 +1,11 @@
-![Captura de pantalla 2024-04-29 155122](https://gist.github.com/assets/158230496/93e1751a-a456-4204-b510-5ca4a3cebfa4)
+# ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/5bacbb13-79a1-4587-9b27-0f562258d38a)
+## La practica 0 en un principio fue el aprender sobre el sistema de wokwi el cual es una herramienta consistente en un simulador de proyectos Arduino, que también sirve para microcontroladores ESP32 y STM32.
+## En esta practica nos familiarizamos tanto con wokwi como con la ide de Arduino con la cual hicimos que un led parpadeara.
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/9be3d65e-46a1-4fd6-91ac-0f7ad55923f4)
 
-![efdb](https://gist.github.com/assets/158230496/69cfa19d-7c85-4c1d-9762-121e470859b8)
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/b9e21891-867d-475e-9a65-af20b4f483ad)
 
+*Este es el codigo para que parpadee un led*
 ```cpp
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
