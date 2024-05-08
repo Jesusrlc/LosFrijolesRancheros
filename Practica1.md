@@ -97,5 +97,12 @@ namespace Practica1_RaspberryPicoW
     }
 }
 
+
 ```
 ## Las siguientes imagenes despliegan el resultado de la practica 1
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/7ddd75b3-51d1-4b0f-9d45-82445daf3bca)
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/1a65d976-af67-48d8-94e0-e31d0adee1ac)
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/f73f4173-86d1-44ef-8eef-dfe27aeda7bc)
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/3aed3921-efc5-4e87-a969-04f649e5fdf7)
+
+
