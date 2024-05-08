@@ -74,11 +74,35 @@ void loop() {
 ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/ee751196-fa3e-4615-9531-b3c9658621d3)
 --- 
 ### Y este fue el programa simulado.
-![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/716c4a9b-cd79-40dd-b6ea-ae426916b4ee)
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/564fd2ed-8a32-42fc-a195-c1aaad944038)
 
 ## Una vez realizada la simulacion pasamos a la parte fisica.
-*Codigo para el sketch.ino*
+*Codigo para arduino*
 ```CC
-#include <Wire.h>
+#include <Adafruit_SSD1306.h>
+#include <Adafruit_GFX.h>
 
+
+Adafruit_SSD1306 display(128, 64);
+
+
+void setup() {
+  // Initialize the display
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // Address 0x3C for 128x32
+  // Clear the display
+  display.clearDisplay();
+  display.setTextColor(WHITE);
+  display.setTextSize(2);
+  display.setCursor(0, 0);
+  display.println("Raspberry Pi Pico W");
+  display.println("hola mundo");
+  display.display();
+}
+
+
+void loop() {
+  // Nothing to do here, just display the static text
+}
 ```
+## Resultado de la actividad 2
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/3d54a296-bc5e-4dee-aa05-ec70a63060b6)
