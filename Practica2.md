@@ -5,6 +5,14 @@
 
 *Codigo para el sketch.ino*
 ```CC
+/*Problema:
+Mostrar un mensaje en un display conectado a la Pico W
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -44,6 +52,14 @@ void loop() {
 --- 
 *Codigo para el diagram.json*
 ```json
+/*Problema:
+Mostrar un mensaje en un display conectado a la Pico W
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Lopez Contreras Jesus Rafael @Nickname Jesusrlc
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 {
   "version": 1,
   "author": "Anonymous maker",
@@ -79,6 +95,14 @@ void loop() {
 ## Una vez realizada la simulacion pasamos a la parte fisica.
 *Codigo para arduino*
 ```CC
+/*Problema:
+Mostrar un mensaje en un display conectado a la Pico W
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Nuño Reyes Gerardo @Nickname GeraNuno
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
 
