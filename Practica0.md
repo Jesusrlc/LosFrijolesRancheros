@@ -7,6 +7,14 @@
 
 *Este es el codigo para que parpadee un led*
 ```cpp
+/*Problema:
+Hacer que un led parpadeara
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
