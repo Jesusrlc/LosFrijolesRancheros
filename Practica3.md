@@ -2,6 +2,14 @@
 
 ## El objetivo de la practica 3 es Desarrollar un servidor web utilizando el microcontrolador Raspberry Pi Pico W, programado en C/C++, que permita controlar el estado de un LED a través de una interfaz web.
 ```CC
+/*Problema:
+controlar el estado de un LED a través de una interfaz web.
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Nuño Reyes Gerardo @Nickname GeraNuno
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 #include <WiFi.h>
 
 
