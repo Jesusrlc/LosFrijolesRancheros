@@ -6,6 +6,14 @@
 
 ## Este fue el codigo utilizado para el desarrollo de la aplicación.
 ```C#
+/*Problema:
+Control de Puerto Serial a nuestra picoW
+Instituto Técnologico de Tijuana
+Ing en Sistemas Computacionales
+Autor: Nuño Reyes Gerardo @Nickname Geranuno
+Fecha: 20/05/2024
+Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
+*/
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
