@@ -27,10 +27,10 @@ Unidad:
 Título del trabajo:
 Proyecto Unidad Final
 
-## Equipo de Trabajo
-- *Almeida Valles Jose de Jesus 21211908*
-- *Lopez Contreras Jesus Rafael 21211977*
-- *Nuño Reyes Gerardo 21212008*
+Equipo de Trabajo
+-Almeida Valles Jose de Jesus 21211908
+-Lopez Contreras Jesus Rafael 21211977
+-Nuño Reyes Gerardo 21212008
 
 
 	</p>
