@@ -47,6 +47,6 @@ void loop() {
 
 ### Prueba Código
 
-![image](https://gist.github.com/assets/105743061/e5369cff-8e0a-4f27-b389-db4ab9dc94f3)
+![Practica0](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/105743061/fee80e64-bd66-4912-a0b3-dd60a04eb642)
 
 ---
