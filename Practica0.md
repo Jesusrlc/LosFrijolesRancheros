@@ -27,6 +27,12 @@ Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
+
+  // Inicializa la comunicación serial a 115200 baudios.
+  Serial.begin(9600);
+  
+  Serial.println("Hola Mundo!");
+  // Configuraciones adicionales aquí
 }
 
 // the loop function runs over and over again forever
@@ -37,3 +43,10 @@ void loop() {
   delay(1000);                      // wait for a second
 }
 
+```
+
+### Prueba Código
+
+![image](https://gist.github.com/assets/105743061/e5369cff-8e0a-4f27-b389-db4ab9dc94f3)
+
+---
