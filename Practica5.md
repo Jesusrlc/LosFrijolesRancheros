@@ -8,7 +8,6 @@ Implementar un programa en el Raspberry Pi Pico W que establezca una conexión c
 ## Requisitos
 * **Configuración del Pico W:** Configurar el Raspberry Pi Pico W para conectarse a Internet.
 * **Conexión con ChatGPT:** Establecer una conexión API con ChatGPT para enviar y recibir datos.
-* **Display OLED:** Mostrar la respuesta de ChatGPT en un display OLED conectado al Pico W.
 * **LED Interactivo:** Programar un LED para que parpadee en sincronización con la llegada de cada token de la respuesta de ChatGPT.
 
 ## Código Utilizado
