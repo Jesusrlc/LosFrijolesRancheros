@@ -27,105 +27,101 @@ Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 */
 #include <WiFi.h>
 
-const char* ssid = "WIFI SSID";             // Replace with your network credentials
-const char* password = "PASSWORD";          // Replace with your password
-int Led=2;
+const char* ssid = "SSID_WIFI";             // Reemplaza con tus credenciales de red
+const char* password = "CONTRASEÑA";        // Reemplaza con tu contraseña
+int Led = 2;
 
-String header;                                      // Variable to store the HTTP request
-String picoLEDState = "off";                        // Variable to store onboard LED state
-unsigned long currentTime = millis();               // Current time
-unsigned long previousTime = 0;                     // Previous time
-const long timeoutTime = 2000;
-WiFiServer server(80);                              // Set web server port number to 80
-void setup()
-{
-  Serial.begin(115200);                              // Start Serial Monitor
-  pinMode(LED_BUILTIN, OUTPUT);                           // Initialize the LED as an output
-  digitalWrite(LED_BUILTIN, LOW);                           // Set LED off
-  WiFi.begin(ssid, password);                       // Connect to Wi-Fi network with SSID and password
-  while (WiFi.status() != WL_CONNECTED)             // Display progress on Serial monitor
-  {
+String header;                                      // Variable para almacenar la solicitud HTTP
+String estadoPicoLED = "apagado";                        // Variable para almacenar el estado del LED incorporado
+unsigned long tiempoActual = millis();               // Tiempo actual
+unsigned long tiempoPrevio = 0;                     // Tiempo anterior
+const long tiempoEspera = 2000;
+WiFiServer servidor(80);                              // Establecer el número de puerto del servidor web en 80
+
+void setup() {
+  Serial.begin(115200);                              // Iniciar el Monitor Serial
+  pinMode(LED_BUILTIN, OUTPUT);                           // Inicializar el LED como salida
+  digitalWrite(LED_BUILTIN, LOW);                           // Apagar el LED
+  WiFi.begin(ssid, password);                       // Conectar a la red Wi-Fi con SSID y contraseña
+  while (WiFi.status() != WL_CONNECTED) {             // Mostrar progreso en el monitor Serial
     delay(500);
     Serial.print(".");
   }
-  Serial.println("");                               // Print local IP address and start web server
-  Serial.print("WiFi connected at IP Address ");
+  Serial.println("");                               // Imprimir dirección IP local y comenzar el servidor web
+  Serial.print("WiFi conectado a la dirección IP ");
   Serial.println(WiFi.localIP());
-  server.begin();                                   // Start Server
+  servidor.begin();                                   // Iniciar el servidor
 }
 
-void loop()
-{
-  WiFiClient client = server.available();   // Listen for incoming clients
-  if (client)
-    {   // If a new client connects,
-        currentTime = millis();
-        previousTime = currentTime;
-        Serial.println("New Client.");                                                                                            // print a message out in the serial port
-        String currentLine = "";                                                                                                  // make a String to hold incoming data from the client
-        while (client.connected() && currentTime - previousTime <= timeoutTime)
-            { // loop while the client's connected
-              currentTime = millis();
-              if (client.available())
-                {   // if there's bytes to read from the client,
-                    char c = client.read();                                                                                           // read a byte, then
-                    Serial.write(c);                                                                                                  // print it out the serial monitor
-                    header += c;
-                    if (c == '\n')
-                      {   // if the byte is a newline character
-                          // if the current line is blank, you got two newline characters in a row.
-                          // that's the end of the client HTTP request, so send a response:
-                          if (currentLine.length() == 0)
-                              { // HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)
-                                // and a content-type so the client knows what's coming, then a blank line:
-                                client.println("HTTP/1.1 200 OK");
-                                client.println("Content-type:text/html");
-                                client.println("Connection: close");
-                                client.println();
-                                // Switch the LED on and off
-                                if (header.indexOf("GET /led/on") >= 0)
-                                  { Serial.println("LED on");
-                                    picoLEDState = "on";
-                                    digitalWrite(LED_BUILTIN, HIGH);}
-                                else if (header.indexOf("GET /led/off") >= 0)
-                                  { Serial.println("LED off");
-                                    picoLEDState = "off";
-                                    digitalWrite(LED_BUILTIN, LOW);}
-                                // Display the HTML web page
-                                client.println("<!DOCTYPE html><html>");
-                                client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-                                client.println("<link rel=\"icon\" href=\"data:,\">");
-                                // CSS to style the on/off buttons
-                                client.println("<style>html { font-family: Arial; display: inline-block; margin: 0px auto; text-align: center;}");
-                                client.println(".button { background-color: #800080; border: none; color: white; padding: 16px 40px;");
-                                client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
-                                client.println(".button2 {background-color: #000000;}</style></head>");
-                                // Web Page Heading
-                                client.println("<body><h1>Pico W LED Web Control Switch</h1>");
-                                // Display current state, and ON/OFF buttons for Onboard LED
-                                client.println("<p>LED state is " + picoLEDState + "</p>");
-                                // Set buttons
-                                if (picoLEDState == "off")
-                                  { client.println("<p><a href=\"/led/on\"><button class=\"button\">ON</button></a></p>");}            //picoLEDState is off, display the ON button
-                                else
-                                  { client.println("<p><a href=\"/led/off\"><button class=\"button button2\">OFF</button></a></p>");}  //picoLEDState is on, display the OFF button
-                                client.println("</body></html>");
-                                client.println();                                                                                     // The HTTP response ends with another blank line
-                                break;                                                                                                // Break out of the while loop
-                             }
-                          else
-                              { currentLine = "";}                                                                                   // if you got a newline, then clear currentLine          
-                      }
-                    else if (c != '\r')
-                      { // if you got anything else but a carriage return character,
-                        currentLine += c; }                                                                                            // add it to the end of the currentLine
-                }
-           }
-          header = "";                                                    // Clear the header variable
-          client.stop();                                                  // Close the connection
-          Serial.println("Client disconnected.");                        
-          Serial.println("");
+void loop() {
+  WiFiClient cliente = servidor.available();   // Escuchar clientes entrantes
+  if (cliente) {   // Si un nuevo cliente se conecta
+    tiempoActual = millis();
+    tiempoPrevio = tiempoActual;
+    Serial.println("Nuevo Cliente.");                                                                                            // imprimir un mensaje en el puerto serial
+    String lineaActual = "";                                                                                                  // crear una cadena para almacenar los datos entrantes del cliente
+    while (cliente.connected() && tiempoActual - tiempoPrevio <= tiempoEspera) { // bucle mientras el cliente esté conectado
+      tiempoActual = millis();
+      if (cliente.available()) {   // si hay bytes para leer del cliente
+        char c = cliente.read();                                                                                           // leer un byte, luego
+        Serial.write(c);                                                                                                  // imprimirlo en el monitor serial
+        header += c;
+        if (c == '\n') {   // si el byte es un carácter de nueva línea
+          // si la línea actual está en blanco, tienes dos caracteres de nueva línea seguidos.
+          // ese es el final de la solicitud HTTP del cliente, así que envía una respuesta:
+          if (lineaActual.length() == 0) { // Las cabeceras HTTP siempre comienzan con un código de respuesta (por ejemplo, HTTP/1.1 200 OK)
+            // y un tipo de contenido para que el cliente sepa qué viene, luego una línea en blanco:
+            cliente.println("HTTP/1.1 200 OK");
+            cliente.println("Content-type:text/html");
+            cliente.println("Connection: close");
+            cliente.println();
+            // Cambiar el LED encendido y apagado
+            if (header.indexOf("GET /led/on") >= 0) {
+              Serial.println("LED encendido");
+              estadoPicoLED = "encendido";
+              digitalWrite(LED_BUILTIN, HIGH);
+            } else if (header.indexOf("GET /led/off") >= 0) {
+              Serial.println("LED apagado");
+              estadoPicoLED = "apagado";
+              digitalWrite(LED_BUILTIN, LOW);
+            }
+            // Mostrar la página web HTML
+            cliente.println("<!DOCTYPE html><html>");
+            cliente.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            cliente.println("<link rel=\"icon\" href=\"data:,\">");
+            // CSS para estilizar los botones de encendido/apagado
+            cliente.println("<style>html { font-family: Arial; display: inline-block; margin: 0px auto; text-align: center;}");
+            cliente.println(".button { background-color: #800080; border: none; color: white; padding: 16px 40px;");
+            cliente.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
+            cliente.println(".button2 {background-color: #000000;}</style></head>");
+            // Encabezado de la página web
+            cliente.println("<body><h1>Interruptor de Control Web LED Pico W</h1>");
+            // Mostrar estado actual y botones ON/OFF para el LED incorporado
+            cliente.println("<p>El estado del LED es " + estadoPicoLED + "</p>");
+            // Configurar botones
+            if (estadoPicoLED == "apagado") {
+              cliente.println("<p><a href=\"/led/on\"><button class=\"button\">ENCENDER</button></a></p>");}            // estadoPicoLED está apagado, mostrar el botón ENCENDER
+            else {
+              cliente.println("<p><a href=\"/led/off\"><button class=\"button button2\">APAGAR</button></a></p>");}  // estadoPicoLED está encendido, mostrar el botón APAGAR
+            cliente.println("</body></html>");
+            cliente.println();                                                                                     // La respuesta HTTP termina con otra línea en blanco
+            break;                                                                                                // Salir del bucle while
+          } else {
+            lineaActual = "";                                                                                   // si obtuviste una nueva línea, luego borra líneaActual
+          }
+        } else if (c != '\r') { // si obtuviste algo más que un carácter de retorno de carro,
+          lineaActual += c;                                                                                              // agrégalo al final de lineaActual
+        }
       }
+    }
+    header = "";                                                    // Limpiar la variable de encabezado
+    cliente.stop();                                                  // Cerrar la conexión
+    Serial.println("Cliente desconectado.");                        
+    Serial.println("");
+  }
 }
-
 ```
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/3b098e39-78ef-48d5-82e9-ddaac8f6db7c)
+
+![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/65e93bf9-ee3a-47b0-9853-80ebf73eb4de)
+
