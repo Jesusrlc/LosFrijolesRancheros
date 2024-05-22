@@ -3,7 +3,7 @@
 ## Práctica: Conexión de Raspberry Pi Pico W con ChatGPT y Visualización en OLED
 
 ## Objetivo 
-Implementar un programa en el Raspberry Pi Pico W que establezca una conexión con ChatGPT, envíe un prompt definido, reciba la respuesta y la muestre en un display OLED. Adicionalmente, el LED del Pico W deberá parpadear cada vez que se reciban tokens de la respuesta.
+Implementar un programa en el Raspberry Pi Pico W que establezca una conexión con ChatGPT, envíe un prompt definido, reciba la respuesta y la muestre. Adicionalmente, el LED del Pico W deberá parpadear cada vez que se reciban tokens de la respuesta.
 
 ## Requisitos
 * **Configuración del Pico W:** Configurar el Raspberry Pi Pico W para conectarse a Internet.
