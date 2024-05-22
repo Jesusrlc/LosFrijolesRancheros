@@ -1,7 +1,12 @@
-
 # ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/58d2c889-b52c-43a7-bcbe-d7803e0c97b4)
 
-## La actividad 2 consto en conectar un display a la Raspberry pico w para mostrar un mensaje, primeramente se realizo la simulacion en el programa de wokwi.
+## Objetivo
+Desarrollar un programa en C/C++ que permita mostrar un mensaje en un display OLED
+
+## Requisitos Previos
+* **Configuración del Display:** Inicializar y configurar el display OLED para asegurar la correcta visualización de los mensajes.
+* **Interfaz de Usuario:** Implementar una función que permita al usuario introducir el mensaje que desea desplegar.
+* **Despliegue del Mensaje:** Programar la lógica necesaria para que el mensaje introducido por el usuario se muestre correctamente en el display OLED.
 
 *Codigo para el sketch.ino*
 ```CC
@@ -9,7 +14,12 @@
 Mostrar un mensaje en un display conectado a la Pico W
 Instituto Técnologico de Tijuana
 Ing en Sistemas Computacionales
-Autor: Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+
+  Autor: 
+- Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+- Lopez Contreras Jesús Rafael @Nickname Jesusrlc
+- Nuño Reyes Gerardo @Nickname GeraNuno
+
 Fecha: 20/05/2024
 Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 */
@@ -17,14 +27,11 @@ Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-
 #define SCREEN_WIDTH 128 // Ancho de la pantalla OLED
 #define SCREEN_HEIGHT 64 // Altura de la pantalla OLED
 
-
 // Declaración del objeto display
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire);
-
 
 void setup() {
   // Iniciar la pantalla OLED
@@ -35,7 +42,6 @@ void setup() {
  
   display.clearDisplay();
 
-
   // Dibuja un texto
   display.setTextSize(1);             // Tamaño del texto
   display.setTextColor(SSD1306_WHITE); // Color del texto
@@ -44,11 +50,11 @@ void setup() {
   display.display(); // Mostrar todo en la pantalla
 }
 
-
 void loop() {
   // Aquí podrías agregar código para actualizar la pantalla continuamente
 }
 ```
+
 --- 
 *Codigo para el diagram.json*
 ```json
@@ -56,7 +62,12 @@ void loop() {
 Mostrar un mensaje en un display conectado a la Pico W
 Instituto Técnologico de Tijuana
 Ing en Sistemas Computacionales
-Autor: Lopez Contreras Jesus Rafael @Nickname Jesusrlc
+
+  Autor: 
+- Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+- Lopez Contreras Jesús Rafael @Nickname Jesusrlc
+- Nuño Reyes Gerardo @Nickname GeraNuno
+
 Fecha: 20/05/2024
 Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 */
@@ -92,23 +103,26 @@ Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 ### Y este fue el programa simulado.
 ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/564fd2ed-8a32-42fc-a195-c1aaad944038)
 
-## Una vez realizada la simulacion pasamos a la parte fisica.
+## Demsotración Física
 *Codigo para arduino*
 ```CC
 /*Problema:
 Mostrar un mensaje en un display conectado a la Pico W
 Instituto Técnologico de Tijuana
 Ing en Sistemas Computacionales
-Autor: Nuño Reyes Gerardo @Nickname GeraNuno
+
+  Autor: 
+- Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+- Lopez Contreras Jesús Rafael @Nickname Jesusrlc
+- Nuño Reyes Gerardo @Nickname GeraNuno
+
 Fecha: 20/05/2024
 Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 */
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
 
-
 Adafruit_SSD1306 display(128, 64);
-
 
 void setup() {
   // Initialize the display
@@ -122,7 +136,6 @@ void setup() {
   display.println("hola mundo");
   display.display();
 }
-
 
 void loop() {
   // Nothing to do here, just display the static text
