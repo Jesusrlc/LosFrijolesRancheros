@@ -1,19 +1,34 @@
 # ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/f2bc6fa3-5598-4ed9-b6eb-29ae29574e24)
 
-## La actividad 1 fue basicamente enfocarse en el Desarrollo de una Aplicación en C# para Control de Puerto Serial a nuestra picoW.
-## El diseño de nuestra aplicacion 
+## Introducción
+El objetivo de este proyecto es desarrollar una aplicación en C# con una interfaz gráfica que permita interactuar con un dispositivo PicoW a través del puerto serial.
+
+## Descripción de Interfaz Gráfica
+* **ComboBox:** Selección de puerto serial
+* **Botón 'Conectar':** Establecer conexión
+* **Botón 'Desconectar':** Cerrar conexión
+* **Botón 'Reset':** Limpiar TextBox
+* **TextBox 'TxtBoxMensaje':** Ingreso y despliegue de mensajes
+
+## Diseño de nuestra aplicacion 
 ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/ba9a644f-0373-4875-bc94-90fc58808099)
 
-## Este fue el codigo utilizado para el desarrollo de la aplicación.
+## Código utilizado para el desarrollo de la aplicación.
 ```C#
 /*Problema:
-Control de Puerto Serial a nuestra picoW
+Control de Puerto Serial a nuestra picoW desde interfaz visual en C#
 Instituto Técnologico de Tijuana
 Ing en Sistemas Computacionales
-Autor: Nuño Reyes Gerardo @Nickname Geranuno
+
+  Autor: 
+- Almeida Valles Jose de Jesus @Nickname JoseAlmeida21
+- Lopez Contreras Jesús Rafael @Nickname Jesusrlc
+- Nuño Reyes Gerardo @Nickname GeraNuno
+
 Fecha: 20/05/2024
 Repositorio: https://github.com/Jesusrlc/LosFrijolesRancheros
 */
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
