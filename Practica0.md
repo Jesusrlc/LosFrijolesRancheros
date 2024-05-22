@@ -1,7 +1,7 @@
 # ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/5bacbb13-79a1-4587-9b27-0f562258d38a)
 ## Objetivo
 
-Desarrollar un programa en C/C++ que permita manipular el led de la placa Raspberry Pico W, facilitando la programación en C/C++.
+El objetivo de este proyecto es desarrollar una aplicación en C/C++ que permita encender un dispositivo Raspberry Pi y desplegar un mensaje en él.
 
 ## En esta practica nos familiarizamos tanto con wokwi como con la ide de Arduino con la cual hicimos que un led parpadeara.
 ![image](https://github.com/Jesusrlc/LosFrijolesRancheros/assets/158230496/9be3d65e-46a1-4fd6-91ac-0f7ad55923f4)
